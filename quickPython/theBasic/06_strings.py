@@ -9,9 +9,9 @@ x = "Hola " + "Mundo"
 8 * "x"   ## podemos multiplicar el string
 
 #String methods
-# cuando usamos "+" para concatenar string perdemos performance porque creamos 2 objetos
+# Al usar "+" para concatenar strings perdemos performance porque creamos 2 objetos.
 palabras = "-".join(["Hola", "todo", "el", "Mundo"]) # usamos mejor el metodo join que es más eficiente
-palabras.split("-")    # por defecto elimina los espacios pero podemos pasarle la secuencia de caracteres a eleiminar
+palabras.split("-")    # por defecto elimina los espacios pero podemos pasarle la secuencia de caracteres a eliminar
 y = 'a b c d'
 y.split(' ', 2)   # podemos indicar los n+1 grupos que forma al realizar el split
 
@@ -28,7 +28,7 @@ string.whitespace       # de esta manera podemos determinar cuales son los mismo
 " \t\n\r\v\f"
 
 x = "   Hola todo el mundo \t\n"
-x.strip()   # elimina espacios a la izquier y derecha del string
+x.strip()   # elimina espacios a la izquierda y derecha del string
 x.lstrip()
 x.rstrip()
 y = "www.pepe.com"
@@ -73,7 +73,7 @@ text = "Hello, World"
 wordList = list(text)
 wordList[6:] = []   ## elimino elementos de la lista
 wordList.reverse()
-text = "".join(wordList)    ## este metodo es costoso en terminos de procesación ya que crea y destruyes objetos
+text = "".join(wordList)    ## este metodo es costoso en terminos de procesamiento ya que crea y destruyes objetos
 
 # Objects to strings
 x =[1]
@@ -92,7 +92,7 @@ x.append([3, 4])
 pi = 3.1415
 print(f"pi es {pi:{10}.{3}}")
 
-# Bytes object -> secuencia de Enteros con valores entre 0 y 256.
+# Bytes object -> secuencia de Enteros con valores entre 0 y 256. Util cuando se esta trabajando con datos en bineario
 unicode_a_with_acute = "\N{LATIN SMALL LETTER A WITH ACUTE}"    ## caracter unicode
 unicode_a_with_acute
 xb = unicode_a_with_acute.encode()    ## el caracter unicode lo transformo en un objeto de 2 bytes

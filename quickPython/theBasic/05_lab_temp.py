@@ -4,7 +4,7 @@
 temperatures = []
 ## funcion que utiliza una variable dictionary para contar las ocurrencias.
 def ocurrencias_unicas(lista_tmp):
-  tmps = list(set(temperatures))   ## con sets convierto la "lista" en un "set" donde elimino los elementos repetidos
+  tmps = list(set(lista_tmp))   ## con sets convierto la "lista" en un "set" donde elimino los elementos repetidos
   ocurrencias = {}    ## creo la variable dictionary
   unicas = []         ## lista de valores que solo tienen una ocurrencias_unicas
 
@@ -18,9 +18,8 @@ def ocurrencias_unicas(lista_tmp):
   print (ocurrencias)
   return unicas
 
-with open('theBasic/05_lab.txt') as infile:
+with open('05_lab.txt') as infile:
   for row in infile:
-    row
     temperatures.append(int(float(row.strip())))
 tmp_max = max(temperatures)
 tmp_min = min(temperatures)

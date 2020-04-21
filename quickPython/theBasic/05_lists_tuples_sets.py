@@ -13,20 +13,20 @@ y = x[:]   #copio todos los elemento de la lista a la variable "y"
 ## x_lista[index1:index2] = listb -> causa que los elementos de la "x_lista" 
 ## entre index1 y index2 sean remplazados por los elementos de la "listab"
 y[len(y):] = [4, 5, 6]    #agrega elementos al final de la "x_lista"
+x = [3, 5, 1, 9] + [2, 4, 8]    # concatenamos listas con "+"
 ## y.extend([4, 5, 6])   # idem a la linea anterior pero utilizando el metodo "extend"
 y.append([4, 5, 6])   # agrega como ultimo "elemento" de la lista una "lista completa"
 y[:0] = [-1, 0]     # agrega los elementos al inicio de la "x_lista"
 y[1:-1] = []    # elimina/agrega elemento de x_lista
 y.insert(0, "hola")   # inserte en la posición n de la lista, el elemento indicado -> parecido a y[n,n]=[element]
 y
-del y[0:2]
+del y[0:2]    ## es preferido para borrar uno varios elementos de una lista
 y
 x.remove(1)   # elimina la primer aparicion del elemento indicado
 x.reverse()   # invierte una lista
 x
 
 # Ordenar listas
-x = [3, 5, 1, 9] + [2, 4, 8]    # concatenamos listas con "+"
 y = x[:]    # copio la lista original a una variable, para mantener el orden original de elementos
 y.sort()    # la fc sort() ordena los elementos de la variable "y". La fc tb ordena listas con elemntos string 
 x = [[3, 5], [2, 9], [2, 3], [4, 1], [3, 2]]
@@ -38,7 +38,7 @@ def compare_number_of_chars(string1):
 word_list = ["Python", "is", "better", "than", "C"]
 word_list.sort(key=compare_number_of_chars)   ## ordena segun el numero de letras de cada palabra en la lista
 word_list
-## Performa más la método sort sin customizar, pudiendo llegar a los mismos resutlados combinandola con otros métodos
+## Performa más el método sort sin customizar, pudiendo llegar a los mismos resutlados combinandola con otros métodos
 
 3 in y    # verifico si 3 es uno de los elementos de la lista "y"
 3 not in y  # verifico si 3 no es un elemento de la list "y"
@@ -64,7 +64,7 @@ shallow = original[:]   ##copia elemento a elemento, pero el elemento "0" es un 
 import copy
 deep = copy.deepcopy(original)  ## crea elemento a elemento copias diferentes a la original. Si modifico el elemento original[0][0] "NO" se refleja en "deep"
 
-#Tuples -> similares a la listas, pero las tuplas son inmutables
+# Tuples -> similares a la listas, pero las tuplas son inmutables
 x = ('a', 'b', 'c')
 # podemos utilizar metodos con los que tratamos a las listas como len, max, min, in, x[:], etc
 x + x
@@ -81,8 +81,8 @@ a, *b, c = x
 b
 
 ## convert tuple and list
-list (touple_var)
-touple(list_var)
+list (tuple_var)
+tuple(list_var)
 s = "Hola"
 list(s)   ## con list podemos descomponer un string
 

@@ -3,7 +3,7 @@ texto = "Estamos en el lab"
 format_text = texto.split()
 "-".join(format_text)
 
-## retor solo "Pablo, Febero" del siguiente string
+## retorna solo "Pablo, Febrero" del siguiente string
 x = "(Pablo, Febrero),\n"
 x.strip("(\n),")      ## consideramos que no toma el orden de los caracteres a eliminar
 
@@ -21,4 +21,4 @@ x.replace("\"","")
 "{1:{0}}".format(3, 4)
 "{0:$>5}".format(3)
 "{a:{b}}".format(a=1, b=5)
-"{a:{b}}:{0:$>5}".format(3, 4, a=1, b=5, c=10)
+"{a:0>{b}}_{0:$<5}_{1:0>2}".format(3, 4, a=1, b=5, c=10)
