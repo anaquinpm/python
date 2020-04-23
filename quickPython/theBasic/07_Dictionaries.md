@@ -74,7 +74,7 @@ for palabra in ocurrencias:
 Al ser común el contar palabras, en el modulo `collections` tenemos una clase `Counter`.
 
 ## ¿Que usar como 'Keys'
-Puede usarce cualquier objeto `inmutable` y `hashable`.
+Puede usarse cualquier objeto `inmutable` y `hashable`.
 
 | Python type | Inmutable | Hashable                        | Dictionary Key |
 | ----------- | --------- | ------------------------------- | -------------- |

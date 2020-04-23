@@ -35,7 +35,7 @@ def potencias(x, y):
 
 print(potencias(3, 3))
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 Es necesario en estos métodos que la cantidad de parametros al llamarlos coincida con los definidos en la función.
 
@@ -54,7 +54,7 @@ def potencias(x, y=2):
 
 print(potencias(3,4))
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 ### Pasando argumentos por nombre de parametro ("Key-word passing")
 Podemos directamente al llamar a la función determinando que valor recibirá cada parametro de la función. En este caso no tiene en cuenta el orden delos parametros a la hora de la llamada.
@@ -88,7 +88,7 @@ def maximo(*numeros):
 
 print(maximo(6, 2, 3, -9, 24))
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 #### Indefinido números de argumentos pasados por "Keyword"
 Al pasar varios argumentos con sus respectivos `keywords`, si estos no están definidos en la función se asignan a un diccionario al cual podemos recorrer cada valor usando su keyword.
@@ -98,7 +98,7 @@ def funcion(x, y , **otros):
 
 funcion(3, y =2, foo=3, bar=4)
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 ### Mezclar técnicas para pasar argumentos
 Es posible mezclar las técnicas de paso de argumentos, pero estas tienen que relizarse siguiendo un orden espcifico para no tener problemas.
@@ -136,7 +136,7 @@ print(abs_temp(0))
 t = {'FtoK': f_to_kelvin, 'CtoK': c_to_kelvin}    # Asignamos a un diccionario las funciones
 print(t['FtoK'](32))
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 ## Lambda expressions
 Son pequeñas funciones que se pueden definir en una linea.
@@ -150,7 +150,7 @@ Podemos definir el conversor de temperaturas anterior de la siguiente manera:
 temp = {'FtoK': lambda deg_f: 273.15 + (deg_f - 32) * 5 / 9, 'CtoF': lambda deg_c: 273.15 + deg_c}
 print(temp['FtoK'](32))
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 ## Generador de funciones
 Es un tipo de función espcial que se utiliza para definir tus propios iteradores. _Retorna_ en cada iteracción el valor de la variable espcificada por la sentencia `yield`. Los valores de las `variables locales` son accesibles en la siguiente llamada.
@@ -168,7 +168,7 @@ def cuatro():
 for i in cuatro():
   print(i)
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 - *Python 3.3* -> `yield from` delega el mecanismo generador a otro subgenerador.
 ```Python
@@ -182,7 +182,7 @@ def gen(y):
 for q in gen(6):
   print (q)
 ```
-[code](09_funtions.py)
+[code](09_functions.py)
 
 Podemos usar `in` para ver dentro del generador la serie que produce
 ```Python
@@ -190,7 +190,24 @@ Podemos usar `in` para ver dentro del generador la serie que produce
 ```
 
 ## Decorators
-Las funciones también pueden ser pasadas como argumento y retornando sus valores a otra función.
-```Python
+La función "decorator" toma como parametro otra función y modifica su comportamiento.
+- Usar "decorators" implica dos partes: 
+  - definir la función que va a encapsular (or decorating) otras funciones
+  - usar "@" justo antes de declarar la función a encapsular.
 
+```Python
+## Decorators
+def decorate(func):
+  print(" in the function decorate, decorating", func.__name__) # Imprime el nombre de la fc que está encapsulando
+  def wrapper_func(*args):    # usualmente se usa el prefijo wrapper_ para la inner fc.
+    print("Executing", func.__name__)
+    return func(*args)
+  return wrapper_func   # retorna la fc encapsulada
+
+@decorate   # definimos que la siguiente función que va se encapsulada por "decorate()"
+def myfunction(parameter):
+  print(parameter)
+
+myfunction("hello")
 ```
+[code](09_functions.py)

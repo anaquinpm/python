@@ -7,4 +7,4 @@ Refresca memoria de lo aprendido de Python.
 - [Strings]() - [Sin Resumen] [Code](quickPython/theBasic/06_strings.py)
 - [Diccionarios](quickPython/theBasic/07_Dictionaries.md)
 - [Control de flujo](quickPython/theBasic/08_controlFlow.md)
-- [Funciones](quickPython/theBasic/09_funtions.md)
+- [Funciones](quickPython/theBasic/09_functions.md)

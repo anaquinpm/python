@@ -58,7 +58,7 @@ def f_to_kelvin(degrees_f):
 def c_to_kelvin(degrees_c):
   return 273.15 + degrees_c
 
-abs_temp = t_to_kelvin
+abs_temp = f_to_kelvin
 print(abs_temp(32))
 abs_temp = c_to_kelvin
 print(abs_temp(0))
@@ -94,15 +94,14 @@ for q in gen(6):
 
 ## Decorators
 def decorate(func):
-  print(" in the function decorate, decorating", func.__name__)
-  def wrapper_func(*args):
+  print(" in the function decorate, decorating", func.__name__) # Imprime el nombre de la fc que está encapsulando
+  def wrapper_func(*args):    # usualmente se usa el prefijo wrapper_ para la inner fc.
     print("Executing", func.__name__)
     return func(*args)
-  return wrapper_func
+  return wrapper_func   # retorna la fc encapsulada
 
-@decorate
+@decorate   # definimos que la siguiente función es la que va se encapsulada por "decorate()"
 def myfunction(parameter):
   print(parameter)
 
-# myfunction = decorate(myfunction)
 myfunction("hello")
