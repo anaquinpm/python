@@ -8,3 +8,4 @@ Refresca memoria de lo aprendido de Python.
 - [Diccionarios](quickPython/theBasic/07_Dictionaries.md)
 - [Control de flujo](quickPython/theBasic/08_controlFlow.md)
 - [Funciones](quickPython/theBasic/09_functions.md)
+- [Modules and Scoping rules](quickPython/theBasic/10_ModulesAndScopingRules.md)
