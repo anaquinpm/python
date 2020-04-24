@@ -127,7 +127,7 @@ x_cuadrado_dicc = {item: item * item for item in x if item > 2}   # Comprehensio
 [code](08_controlFlow.py)
 
 ### Generador de expresiones
-Este es similar a una `lits comprenhension`, pero este genera un ubjeto el cual depués lo podemos _iterar_ mediante un **loop for**.
+Este es similar a una `list comprehension`, pero este genera un ubjeto el cual depués lo podemos _iterar_ mediante un **loop for**.
 
 - **Ventaja**: la lista no se genera en memoria, logrando poco overhead al procesar grandes listas.
   
