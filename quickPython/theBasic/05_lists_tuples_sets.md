@@ -118,7 +118,7 @@ x = [None] * 4		# lista con 4 elementos que apuntan al objeto None
 y = [1, 2] * 4		# [1, 2, 1, 2, 1, 2, 1, 2] -> repite los elementos las veces que le indiquemos
 ```
 
-### Minimos y mácimos en una lista
+### Mínimos y máximos en una lista
 Generalmente se utiliza en listas que contienen números, pero se puede usar con cualquier tipo de objetos, que contengan elementos del mismo tipo.
 
 ```python
