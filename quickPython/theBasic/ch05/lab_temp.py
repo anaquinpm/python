@@ -32,12 +32,12 @@ tmp_avr = sum(temperatures)/len(temperatures)       # Promedio o media aritméti
 print ("La remperatura promedio: ", tmp_avr)
 
 # Calculo de la Mediana según el número de elementos que contenga la muestra
-mid = int(len(temperatures)/2) 
-if 0 == mid%2:                                      # Si es par, de hace un promedio de los elementos centrales
-    mid_down = temperatures[int(mid)]
-    mid_up = temperatures[int(mid)+1]
+mid = len(temperatures)/2
+if 0 == mid%2:                                      # Si es par, se hace un promedio de los elementos centrales
+    mid_down = temperatures[int(mid)]               # "int" trunca el número decimal, para dejar el indice del elemento anterior a la Mediana
+    mid_up = temperatures[int(mid)+1]               
     tmp_med = (mid_down + mid_up)/2
-else:                                              # Si es impar, la Mediana es el dato central del conjunto
+else:                                               # Si es impar, la Mediana es el dato central del conjunto
     tmp_med = temperatures[mid]
 print ("La remperatura mediana: ", tmp_med)
 
