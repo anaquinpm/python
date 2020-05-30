@@ -10,12 +10,12 @@ while n > 0:
 ```
 
 ## Comentarios
-El simbolo `#` nos indica el comienzo de un comentario, de tal manera que no es ejecuta. La excepción es cuando se encuentra dentro de un **"string"**.
+El simbolo `#` nos indica el comienzo de un comentario, de tal manera que no es ejecutada. La excepción es cuando se encuentra dentro de un **"string"**.
 
 ```python
-# Podemos comentar al inicio
+# Este es un comentario al inicio
 n=4		## comentario en la misma linea de código
-coment="#En este string si se ve el simbolo"
+coment="#En este string si vemos el simbolo"
 ```
 
 ## Variables y asignaciones
