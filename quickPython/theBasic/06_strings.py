@@ -18,9 +18,9 @@ y.split(' ', 2)   # podemos indicar los n+1 grupos que forma al realizar el spli
 # String to numbers
 float('123.456')
 int('123')
-int('1000', 8)    ## "1000" en base octal
-int('1000', 2)    ## "1000" en base binaria
-int('ff', 16)   ## 1000" en base hexadecimal
+int('1000', 8)      ## "1000" en base octal
+int('1000', 2)      ## "1000" en base binaria
+int('ff', 16)       ## "1000" en base hexadecimal
 
 # Eliminando espacios al inicio o final de un string
 import string           # segun el OS se tomán como espacio en blanco diferentes caracteres, 
@@ -92,7 +92,7 @@ x.append([3, 4])
 pi = 3.1415
 print(f"pi es {pi:{10}.{3}}")
 
-# Bytes object -> secuencia de Enteros con valores entre 0 y 256. Util cuando se esta trabajando con datos en bineario
+# Bytes object -> secuencia de Enteros con valores entre 0 y 256. Util cuando se esta trabajando con datos en binarios
 unicode_a_with_acute = "\N{LATIN SMALL LETTER A WITH ACUTE}"    ## caracter unicode
 unicode_a_with_acute
 xb = unicode_a_with_acute.encode()    ## el caracter unicode lo transformo en un objeto de 2 bytes

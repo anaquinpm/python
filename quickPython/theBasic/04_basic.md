@@ -6,7 +6,7 @@ En python usamos los `espacios` e indentación parra detereminar los bloques de 
 ```python
 n=5
 while n > 0:
-  n -=1			# si  la linea no estuviera indentada no pertenecería al loop while
+  n -=1         # si  la linea no estuviera indentada no pertenecería al loop while
 ```
 
 ## Comentarios
@@ -14,7 +14,7 @@ El simbolo `#` nos indica el comienzo de un comentario, de tal manera que no es 
 
 ```python
 # Este es un comentario al inicio
-n=4		## comentario en la misma linea de código
+n=4     ## comentario en la misma linea de código
 coment="#En este string si vemos el simbolo"
 ```
 
@@ -22,17 +22,17 @@ coment="#En este string si vemos el simbolo"
 Las variables se crean automaticamente en con su primera asignación.
 
 ```python
-x = 5		# Asignamos el valor 5 a la variable x
+x = 5       # Asignamos el valor 5 a la variable x
 ```
 
 Las variales son `tags` o `labels` que apuntan un **objeto** en el namespace del interprete de python. De esta manera un objeto puede estar referenciado por diferentes variables, pero si cambia el objeto, este cambio se refleja en *todas* las variables que lo referenciaban.
 
 ```python
-a = [1, 2, 3]		# creamos una lista
+a = [1, 2, 3]       # creamos una lista
 b = a
 c = b
 b[1] = 5
-print(a, b, c)		# imprime tres veces [1, 5, 3]
+print(a, b, c)      # imprime tres veces [1, 5, 3]
 ```
 
 En los valores constantes o inmutables el comportamiento varía, ya que la variable al reasignarla no puede modificar el objeto, se reasigna a un nuevo objeto.
@@ -44,7 +44,7 @@ x="un string"
 print(x)
 x = 5
 print(x)
-del x		# borramos la varible
+del x       # borramos la varible
 ```
 
 Las variables son `case-sensitive` y pueden contener cualquier caracter alfanumerico y guiones bajos.
@@ -52,9 +52,9 @@ Las variables son `case-sensitive` y pueden contener cualquier caracter alfanume
 ## Expresiones
 Python soporta expresiones aritméticas.
 ```python
-x, y = 3, 4			# Otra forma de asignar valores a variables.
+x, y = 3, 4         # Otra forma de asignar valores a variables.
 z = (x + y) / 2
-z = (x + y) // 2	# retorna el decimal truncado
+z = (x + y) // 2    # retorna el decimal truncado
 ```
 
 ## Strings
@@ -77,11 +77,11 @@ Python maneja 4 tipos de números:
 ```python
 >>> 9 / 2
 4.5
->>> 9 // 2 		# Trunca la división mostrando la parte entera
+>>> 9 // 2      # Trunca la división mostrando la parte entera
 4
->>> int(2.3e2)	# int() Transforma el float devuelto por la notación científica a entero
+>>> int(2.3e2)  # int() Transforma el float devuelto por la notación científica a entero
 230
-float(9 / 3)	# transformamos el número entero en flotante
+float(9 / 3)    # transformamos el número entero en flotante
 3.0
 ```
 
@@ -92,7 +92,7 @@ abs , divmod, float, hex, int, max, min, oct, pow, round
 Podemos usar el `módulo math` para ralizar operaciones más complejas
 
 ```python
-from math import *		# Importamos las funciones del módulo
+from math import *      # Importamos las funciones del módulo
 ```
 
 **Funciones**: acos, asin, atan, cos, ceil, exp, e, hypot, log, log10,...
