@@ -1,4 +1,4 @@
-## Contando palabras
+"""  Contando palabras """
 parrafo = "Probando como hacemos con python para contar palabras"
 ocurrencias={}
 for palabra in parrafo.split():

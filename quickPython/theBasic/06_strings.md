@@ -1,5 +1,5 @@
 # Strings
-[Code](06_strings.py)
+[Resumen de código con comentarios](06_strings.py)
 
 ## Strings como secuencia de caracteres
 Es posible extraer caracteres o substrings de un string usando "index" o la notación "slice".
@@ -11,7 +11,7 @@ x[:-1]        # "Hola" -> Util cuando leemos lineas de un archivo y tienen "\n"
 x[1:-1]       # "ola"
 len(x)        # "5"
 ```
-Python tiene métodos más especificos para trabajar con strings, pero es una forma de ilustrar la posibilidad de ser tratados como una secuencia de datos cualquiera.
+Python tiene métodos más especificos para trabajar con strings, pero el código anterior es una forma de ilustrar la posibilidad de ser tratados como una secuencia de datos cualquiera.
 
 La única diferencia entre una lista y un string, es que los strings no pueden ser modificados.
 
@@ -28,10 +28,10 @@ x = "Hola" + "mundo"    # "Hola mundo"
 ```
 
 ## Caracteres especiales y secuencias de escape.
-Podemos representar `caracteres especiales` mediante `secuencias de escapes`, las cuales empiezan con un "backlash (\)", tales como el salto de página que ya vimos en ejemplos anteriores (\n).
+Se pueden representar **caracteres especiales** mediante `secuencias de escapes`, las cuales empiezan con un "backlash", tal como el salto de página que vimos en ejemplos anteriores (\n).
 
 ### Secuencias de escape básicas
-Con los **strings** se puede utilizar secuencias de escapes formadas por `dos caracteres`.
+Con los **strings** se puede utilizar secuencias de escape formadas por `dos caracteres`.
 | Secuencia | Representación                 |
 | --------- | ------------------------------ |
 | \'        | Comilla simple                 |
@@ -44,7 +44,7 @@ Con los **strings** se puede utilizar secuencias de escapes formadas por `dos ca
 | \v        | Tab vertical                   |
 
 ### Secuencias de escapes numéricas y Unicode
-Podemos representar cualquier caracter ASCII en base `octal` o `hexadecimal`
+Se puede representar cualquier caracter ASCII en base `octal` o `hexadecimal`
 ```python
 x = "k"
 print("\153")   # representación octal
@@ -61,7 +61,7 @@ print('\u00E1')                   # "á"
 * Buscar caracteres ASCII y UNICODE
 
 ### Diferencia entre "print" o "evaluar una expresión"
-Esto lo podemos ver cuando estamos en una seción interactiva de Python y colocamos el nombre de una variable, en este caso, un string con una secuencia de escape
+Esto lo podemos ver cuando estamos en una **sesión interactiva** de Python y colocamos el nombre de una variable, en este caso, un string con una secuencia de escape
 
 ```python
 x = " Hola mundo\n"
@@ -70,16 +70,16 @@ print(x)              # "Holas Mundo" -> Devuelve el string pero realizando la c
 ```
 
 ## String Methods
-La clase string en Python tiene varios métodos especificos para este tipo de dato, los cuales la eredan al momento de ser creados.
+La clase string en Python tiene varios métodos especificos para este tipo de dato, los cuales la heredan al momento de ser creados.
 
-Para utilizar los metodos les anteponemos el objeto string sobre los que vamos a trabajar, lo cuales no se veran modificados.
+Para utilizar los métodos les anteponemos el objeto string sobre los que vamos a trabajar, lo cuales no se veran modificados.
 
 ### Split and Join
 Estos métodos son el inverso uno del otro.
   - `Split`: retorna una lista de substrings respecto de un string. Se puede indicar el separador, sino especifica se toma los espacios como tal.
   - `Join`: toma una lista como parametro y la une en un solo string.
 
-Antes utilizamos para concatenar strings el simbolo `"+"`, este es útil en ciertos casos, pero no performa bien debido a que cada vez que se procesa el simbolo se crea un nuevo objeto string.
+**`!`** Antes utilizamos para concatenar strings el simbolo `+`, este es útil en ciertos casos, pero no performa bien debido a que cada vez que se procesa el simbolo se crea un nuevo objeto string.
 
 ```python
 "-".join(["join","coloca","el","separador","indicado","entre","palabras"])
@@ -101,10 +101,10 @@ x = "Cambiamos los espacios de este texto por guines"
 Podemos convertir strings a números mediante `int` y `float`. Int() puede usar un segundo parametro el cual indica la base numérica de string.
 ```python
 float('123.456')
-int('123')
-int('1000', 8)      # "1000" en base octal
-int('1000', 2)      # "1000" en base binaria
-int('ff', 16)       # "1000" en base hexadecimal
+int('123')          # "123" en base decimal
+int('1000', 8)      # "512" decimal -> "1000" en base octal
+int('1000', 2)      # "8" decimal -> "1000" en base binaria
+int('ff', 16)       # "4096" decimal -> "ff" en base hexadecimal
 ```
 
 ### Espacios en blanco
@@ -112,7 +112,7 @@ Según el OS en que corramos pueden variar los caracteres de espacios en blanco.
 
 ```python
 import string
-string.whitespace		# ' \t\n\r\x0b\x0c' -> Espacios en blanco considerados por el OS.
+string.whitespace		# ' \t\n\r\x0b\x0c' -> Espacios en blanco considerados por mi OS.
 ```
 
 Podemos eliminar los espacios en blanco que se encuentran delante o detras de una cadena de caracteres con los siguiente métodos:
@@ -142,7 +142,7 @@ A estas `funciones básicas de busqueda` se le suman: **rfind, index y rindex**
 
 La diferencia entre las funciones `find` e `index` es que index al no encontrar el substring en su busqueda devuelve una *excepción* "ValueError"
 
-Los métodos `stratswith` y `endswith` buscan un substring al *incio* o *final* de un string. Devuelven como resultado **True** o **False**.
+Los métodos `startswith` y `endswith` buscan un substring al *incio* o *final* de un string. Devuelven como resultado **True** o **False**.
 ```python
 x = "pollo"
 x.startswith("po")      # "True"
@@ -157,10 +157,10 @@ Los strings no son modificables, pero podemos obtener cadenas a partir de ellos 
 x = "pollo"
 x.replace("ll","y")     # "poyo" -> replace() retorna otro string remplazando un substring por otro que indiquemos
 
-""" Podemos realizar remplazo de caracteres usando una tabla creada por nosotros y aplicandola a nuestro string ""
+""" Podemos realizar remplazo de caracteres usando una tabla creada por nosotros y aplicandola a nuestro string """
 x = "( -A ![number])"               # string de un lenguaje imaginario
 tabla = x.maketrans("-!","*^")      # Creamos la tabla para cambiar cada caracter. Las posiciones en cada parametro se corresponden en el orden
-x.translate(tabla)                  # Trasladamos el texto según la tabla creada.
+x.translate(tabla)                  # "( *A ^![number])" -> Trasladamos el texto según la tabla creada.
 ```
 
 Otros métodos :
@@ -178,9 +178,9 @@ Otra posibilidad de trabajar con los strings es haciendo "listas" a partir de el
 ```python
 x = "Cambiando tipo de dato"
 nuevaLista = list(x)
-parrafo = "".join(nuevaListai[8:0])   # Unimos los elementos de la lista sin agregar separadores.
+parrafo = "".join(nuevaListai[8:])   # Unimos los elementos de la lista sin agregar separadores.
 ```
-Esta forma de modificar no es optima para trabajar grandes cadenas de strings, por lo que estamos creando nuevos objetos para poder modificarlos.
+Esta forma de modificar *no es optima* para trabajar grandes cadenas de strings, por lo que estamos creando nuevos objetos para poder modificarlos.
 
 ### Objetos a strings
 repr() nos permite mostrar objetos como una representación de string.

@@ -18,9 +18,9 @@ def parent():
     print ("Escribiendo desde la fc. first_child()")
 
   def second_child():
-    print ("Escribiendo desde la fc. first_child()")
+    print ("Escribiendo desde la fc. second_child()")
 
-  second_child()
+  first_child()
   second_child()
 
 parent()
@@ -33,10 +33,11 @@ def my_decorator(func):
     print("Something is happening after the function is called.")
   return wrapper
 
+@my_decorator
 def say_whee():
   print("Whee!")
 
-say_whee = my_decorator(say_whee)
+say_whee()
 
 # Otro ejemplo de un decorator
 from datetime import datetime
@@ -49,8 +50,8 @@ def not_during_the_night(func):
       pass  # Hush, the neighbors are asleep
   return wrapper
 
+@not_during_the_night
 def say_whee():
   print("Whee!")
 
-say_whee = not_during_the_night(say_whee)
 say_whee()

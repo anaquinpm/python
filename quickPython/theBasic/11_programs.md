@@ -2,11 +2,11 @@
 ## Haciendo scripts ejecutables directamente en Unix
 
 ```bash
-$ chmod +x scriptname.py    # Damos permiso de ejecución al script
+$ chmod +x scriptname.py     # Damos permiso de ejecución al script
 $ which python3              # Averiguamos el path donde está nuestro python
 ```
 
-Conociendo el path de python, agregamos como primera linea del script la referencia al ejecutable de python que averiguamos.
+Conociendo el path de python, agregamos como *primera linea* del script la referencia al ejecutable de python que averiguamos.
 
 ```python
 #! /usr/bin/env python3
@@ -51,7 +51,8 @@ Podemos tambien utilizar el pipe ( | ) para redireccionar salidas desde la conso
 > $ ./replace.py a A < infile | ./replace.py b B > outfile
 
 ### Módulo argparse
-Soporta el uso de diferentes tipos de argumentos y puede generar mensages.
+Soporta el uso de diferentes tipos de argumentos y puede generar mensajes.
+
 ```python
 from argparse import ArgumentParser
 
@@ -64,13 +65,14 @@ def main():
     parser.add_argument("-q", "--quiet", action="store_false", dest="verbose", default=TRUE, help="don't print status messages to std out")
     args = parser.parse_args()
     print("arguments: " args)
+
 main()
 ```
 [Code](ch11/opts.py)
 
 Ingresamos todo los argumentos en el shell para ver como funciona el programa
 ```bash
-$ ./opts.py -x100 -q -f outfile 2 arg2 
+$ ./opts.py -x100 -q -f outfile 2 arg2
 $ ./opts.py -x100 -q -f outfile 2     ## causamos un error al no ingresar el arg2
 ```
 
@@ -120,6 +122,12 @@ Al crear un script y setearlo como módulo, nos dá la ventaja de poder importar
 ```Bash
 $ ./n2w.py 199
 $ ./n2w.py --test < n2w.tst > n2w.txt     # Modo testeo
+```
+
+```python
+" En el modo interactivo podemos importarlo como módulo "
+import n2w
+n2w.num2words("1,234")    " El parametro que espera la fc es un string, por eso las comillas.
 ```
 
 ## Distribuir aplicaciones python

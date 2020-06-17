@@ -6,9 +6,9 @@ while condition:
 else:          # opcional y usualmente no utilizada
   post-code    # lineas de código
 ```
-`Condition` es una expesión booleana que mientras sea **True** va iterar en el `body` hasta que resulte **False** y ejecute el código en `else`.
+`Condition` es una expesión booleana que mientras sea **True** itera sobre el `body` hasta que resulte **False** y ejecute el código en `else`.
 
-Los niveles en la indención indica como los bloques de código se van a ejecutar.
+Los niveles en la indentación indican como los bloques de código se van a ejecutar.
 
 En el **body** podemos usar la sentencias especiales:
 - `Break`: termina el loop y salta el **else** también.
@@ -72,11 +72,11 @@ for n in range(len(x)):
 ```
 [code](08_controlFlow.py)
 
-Range produce un objeto que genera enteros a demanda, aunque pareciera que genera una lista. Esto es util cuando tenemos que generar una secuencia muy grande, `performando` mucho más que creando una lista, ya que no esta almacenado en memoria la lista con los enteros.
+`Range` produce un objeto que genera enteros a demanda, aunque pareciera que genera una lista. Esto es util cuando tenemos que generar una secuencia muy grande, `performando` mucho más que creando una lista, ya que no esta almacenado en memoria la lista con los enteros.
 
 Podemos generar una secuencia regresiva colocando [range] con un valor negativo
 ```Python
-list(range(8, 3, -2))   #List fuerza a verlo como una lista en este Ejemplo y no se usa al programar 
+list(range(8, 3, -2))   #List fuerza a verlo como una lista en este Ejemplo y no se usa al programar
 ```
 [code](08_controlFlow.py)
 
@@ -97,8 +97,8 @@ Combinando "tuple unpaking" con la fc `enumarete` podemos recorrer el index y va
 ```Python
 x = [1 , -8, 2, -3, 9, 4]
 for i, v in enumerate(x):
-  if v > 0:                               
-    print("Números positivos en el index", i)
+  if v > 0:
+    print(f"Número positivo en el index {i}")
 ```
 [code](08_controlFlow.py)
 
@@ -118,7 +118,7 @@ list(z)
 Es una linea de código de un loop `for` que crea una nueva lista o diccionario de una secuencia.
 ```Python
 new_list = [expresion1 for variable in old_list if expresion2]          # Lista
-new_list = [expresion1:expresion2 for variable in list if expresion3]   # Diccionario
+new_list = {expresion1:expresion2 for variable in list if expresion3}   # Diccionario
 
 x = [1, 2, 3, 4]
 x_cuadrado_list = [item * item for item in x if item > 2]         # Comprehensions en listas
@@ -130,7 +130,7 @@ x_cuadrado_dicc = {item: item * item for item in x if item > 2}   # Comprehensio
 Este es similar a una `list comprehension`, pero este genera un ubjeto el cual depués lo podemos _iterar_ mediante un **loop for**.
 
 - **Ventaja**: la lista no se genera en memoria, logrando poco overhead al procesar grandes listas.
-  
+
 ```Python
 x = [1 , 2 , 3, 4]
 x_cuadrado = (item * item for item in x)    # x_cuadrado es un objeto
@@ -139,7 +139,7 @@ for valor in x_cuadrado:
 ```
 [code](08_controlFlow.py)
 
-[**EJEMLPLOS**](08_comprehensions.py)
+[**EJEMPLOS**](08_comprehensions.py)
 
 ## Sentencias, bloques e indentación
 Vimos que python utiliza la indentación para definir los bloques de como se construye el control de flujo del programa que estamos escribiendo.
@@ -153,8 +153,8 @@ print(x, y, z)      # 1 1 10
 ```
 Para no tener problemas es recomendable para indentar usar espacios y no tabs.
 
-## Valores y expresiones boleanas
-La mayoria de objetos de en Python pueden ser usados en expresiones que retornen True o False
+## Valores y expresiones booleanas
+La mayoria de objetos en Python pueden ser usados en expresiones que retornen True o False
 
 | data type  | False | True                  |
 | ---------- | ----- | --------------------- |
@@ -168,22 +168,22 @@ La mayoria de objetos de en Python pueden ser usados en expresiones que retornen
 Hay otros tipos de objetos que pueden ser evaluados de la misma manera que no cubre la tabla, pero siguen el mismo criterio, son `False` cuando son **0** o estan **vacíos**.
 
 ### Comparaciones y operadores booleanos
-- **Nomal operators**: <, <=. >, >=, ==, !=
+- **Normal operators**: <, <=, >, >=, ==, !=
 - **Secuencias** (list, tuples, strings, dictionaries): in, not in, is, is not.
 - **Combinación de expresiones**: and, or, not
 
 Los operadores `and` y `or` devuelven objetos. **And** devuelve el primer objeto Falso que evalua y **Or** devuelve el primer objeto True y para su ejecución.
- 
+
 - `==` y `!=` nos permite comparar el **contenido** de los _operandos_.
 - `is` e `is not` evalua si los _operandos_ son los mismos **tipos de objetos.**
 
 ## [Ejemplo: Contar parrafos, palabras y caracteres](08_word_count.py)
 
 ```Python
-#!env python3
+#!/usr/bin/env python3
 """ Leer un archivo y devolver el número de lineas, palabras y caracteres
     Similar al comando 'wc' de UNIX
-""" 
+"""
 line_count, word_count, char_count = 0, 0, 0
 with open('word_count.tst') as lines:
   for line in lines:

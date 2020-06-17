@@ -1,10 +1,10 @@
-## Seleccionar el código a ejecutar en algún IDE
+""" Seleccionar el código a ejecutar en algún IDE """
 y={}
 y["cero"] = 3.14    ##Podemos crear arbitrariamente una posición
 y[1] = 'Goodbye'
 y[1] + ', Friend.'
 y[2] = 2
-y["cero"] * y[2]  
+y["cero"] * y[2]
 
 espanol_a_ingles = {'rojo': 'red', 'verde': 'green', 'azul': 'blue'}
 len(espanol_a_ingles)         # numero de elementos

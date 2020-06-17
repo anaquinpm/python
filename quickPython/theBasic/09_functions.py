@@ -74,7 +74,7 @@ print(temp['FtoK'](32))
 def cuatro():
   x = 0
   while x < 4:
-    print("en el generador, x= ", x)
+    print("en el generador, x = ", x)
     yield x
     x +=1
 
@@ -98,9 +98,9 @@ def decorate(func):
   def wrapper_func(*args):    # usualmente se usa el prefijo wrapper_ para la inner fc.
     print("Executing", func.__name__)
     return func(*args)
-  return wrapper_func   # retorna la fc encapsulada
+  return wrapper_func         # retorna la fc encapsulada
 
-@decorate   # definimos que la siguiente función es la que va se encapsulada por "decorate()"
+@decorate                     # definimos que la siguiente función es la que va se encapsulada por "decorate()"
 def myfunction(parameter):
   print(parameter)
 

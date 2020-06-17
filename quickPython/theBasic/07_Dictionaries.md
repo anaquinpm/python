@@ -14,12 +14,12 @@ y["cero"] = 3.14    ## Podemos crear arbitrariamente una posición
 y[1] = 'Goodbye'
 y[1] + ', Friend.'
 y[2] = 2
-y["cero"] * y[2]    
+y["cero"] * y[2]
 ```
 
 [code](07_Dictionaries.py)
 
-Los diccionarios son una forma de mapear un conjunto de datos arbitrarios a otro asociado pero igualmente arbitrario conjunto de datos.
+Los diccionarios son una forma de mapear un conjunto de datos arbitrarios a otro conjunto de datos asociado pero igualmente arbitrario.
 
 [Ejemplo: Ingresar nombre y edades de personas. Elegir el nombre de quien quiero saber la edad](07_name.py)
 
@@ -71,7 +71,7 @@ for palabra in ocurrencias:
 ```
 [code](07_words.py)
 
-Al ser común el contar palabras, en el modulo `collections` tenemos una clase `Counter`.
+Al ser común el contar palabras, en el modulo *collections* tenemos una clase `Counter`.
 
 ## ¿Que usar como 'Keys'
 Puede usarse cualquier objeto `inmutable` y `hashable`.
@@ -118,9 +118,9 @@ Si tuvieramos una función que toma 3 argumentos para realizar un determinado ca
 ```Python
 cache_calculo={}    # diccionario como variable global para almacenar resultados previos.
 def Calculando(a, b, c):
-  if (a, b, c) in cache_calculo:
+  if (a, b, c) in cache_calculo:        # Si el indice existe retornamos su valor
     return cache_calculo[(a, b, c)]
-  else:
+  else:                                 # Calculamos el valor y almacenamos su valor antes de devolverlo.
     ## aquí van operaciones para devolver "resultado"
     cache_calculo[(a, b, c)] = resultado
     return resultado
