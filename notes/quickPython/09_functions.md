@@ -1,10 +1,13 @@
 # Funciones
+
 ## Definición básica de función
+
 ```Python
 def name (parametro1, parametro2, ...):
   """ Descripción de la función"""      # Opcional: documentation string or docstring
   body
 ```
+
 ```Python
 def factorial(n):
   """ Retorna el Factorial de un número dado """
@@ -22,7 +25,9 @@ El `docstring` tiene la función de describir que realiza la función y que para
 En **Python** al ejecutarse **return arg** el valor `arg` es devuelto saliendo de la función. Aunque la función *no* retorne un **valor explicitamente**, automaticamente esta retorna el valor especial `None`.
 
 ## Opciones de parametros en funciones
+
 ### Parametros posicionales
+
 Al definir la función le damos los nombres de variable para cada parametro que recibirá. La función al ser llamada asigna según la `posición` el valor a cada variable de los parametros de la función.
 ```Python
 """ Potencia de un número, según su base y potencia """

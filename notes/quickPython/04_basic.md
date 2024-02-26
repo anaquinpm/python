@@ -1,6 +1,7 @@
 # Lo Básico en Python
 
-## Indentación y bloques de structuras.
+## Indentación y bloques de structuras
+
 En python usamos los `espacios` e indentación se usa para detereminar los bloques de las estructuras.
 
 ```python
@@ -10,6 +11,7 @@ while n > 0:
 ```
 
 ## Comentarios
+
 El simbolo `#` nos indica el comienzo de un comentario, de tal manera que su texto no es ejecutado. La excepción es cuando se encuentra dentro de un **"string"**.
 
 ```python
@@ -19,6 +21,7 @@ coment="#En este string si vemos el simbolo"
 ```
 
 ## Variables y asignaciones
+
 Las variables se crean automáticamente en con su primera asignación.
 
 ```python
@@ -50,7 +53,9 @@ del x       # borramos la varible
 Las variables son `case-sensitive` y pueden contener cualquier caracter alfanumérico y guiones bajos.
 
 ## Expresiones
+
 Python soporta expresiones aritméticas.
+
 ```python
 x, y = 3, 4         # Otra forma de asignar valores a variables.
 z = (x + y) / 2
@@ -58,6 +63,7 @@ z = (x + y) // 2    # retorna el decimal truncado
 ```
 
 ## Strings
+
 Indica los string mediante el uso de **comillas simples o dobles**, indistintamente.
 
 Para representar caracteres espciales usamos **"backslash"** para escaparlos y lograr su representación: \n (salto de linea), \t (tabulador), \" (comillas dobles), etc.
@@ -65,14 +71,16 @@ Para representar caracteres espciales usamos **"backslash"** para escaparlos y l
 Las **triples comillas simples o dobles**, nos brindan la ventaja de no tener que escapar los caracteres
 x = """ Este es un texto
 que puede representar 'caracteres' especiales
-sin necesidad de escparlos"""
+sin necesidad de escaparlos"""
 
 ## Números
+
 Python maneja 4 tipos de números:
-  - `Enteros`: su tamaño está dado por los recursos de la computadora.
-  - `Flotantes`: Pueden ser escrito como decimal o notación científica. Tamaño máximo de 64-bit.
-  - `Complejos`
-  - `Booleanos`: True (1) o False (0).
+
+- `Enteros`: su tamaño está dado por los recursos de la computadora.
+- `Flotantes`: Pueden ser escrito como decimal o notación científica. Tamaño máximo de 64-bit.
+- `Complejos`
+- `Booleanos`: True (1) o False (0).
 
 ```python
 >>> 9 / 2
@@ -86,9 +94,11 @@ float(9 / 3)    # transformamos el número entero en flotante
 ```
 
 ### Funcions númericas de python (build-in)
+
 abs , divmod, float, hex, int, max, min, oct, pow, round
 
 ### Funciones numéricas avanzadas
+
 Podemos usar el `módulo math` para ralizar operaciones más complejas
 
 ```python
@@ -100,9 +110,12 @@ from math import *      # Importamos las funciones del módulo
 En la documentación están todas las funciones con la que cuenta.
 
 ### Numeric computation
-[NumPy](www.scipy.org) es una extensión que permite implementar operaciones avanzadas de computación, como Transformadas Rápidas de Fourier, matrices y más.
+
+[NumPy](https://wwp.scipy.org) es una extensión que permite implementar operaciones avanzadas de computación, como Transformadas Rápidas de Fourier, matrices y más.
+$ git status
 
 ## El valor "None"
+
 Es un `objeto especial simple` que nos permite presentar un **valor vacío**.
 Al ejecutarse una función que no retorna un valor, por defecto esta devuelve un valor `None`.
 
@@ -111,6 +124,7 @@ Este es un valor que podemos usar como "placeholder" en una estructura de datos.
 `None` tiene **una sola instancia** en todo el sistema Python, de tal manera que cualquier referencia al mismo apuntan al mismo objeto.
 
 ## Obteniendo entradas (inputs) del usuario
+
 ```python
 """ Este es un programa para sacar el factorial de un número dado """
 # El input devulve un valor **string** por defecto. En este caso lo convertimos a int
@@ -123,5 +137,7 @@ print (r)
 ```
 
 ## [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
+
 En link nos lleva a una guía de las convenciones que deberíamos usar para realizar un código en python.
+
 - Por ejemplo: `my_func`, `my_var`, `my_module`, `MyClass`, `CONST_NAMES`

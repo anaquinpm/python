@@ -19,7 +19,7 @@ def alone():
   print ("Estas son las ocurrencias por cada número:\n", ocurrencias)
   return unicas
 
-"""" Calculo de la Mediana según el número de elementos que contenga la muestra """
+"""" Cálculo de la Mediana según el número de elementos que contenga la muestra """
 def mediana():
   mid = len(temperatures)/2                           # La mediana se calcula, o no, según el n° de muestras
   if mid.is_integer():                                # Si mid es entero, se hace un promedio de los 2 elementos centrales
@@ -37,12 +37,12 @@ with open('lab.txt') as infile:
 
 print("Cantidad de datos aevaluar: ", len(temperatures))
 tmp_max = max(temperatures)
-print ("La remperatura máxima: ", tmp_max)
+print ("La temperatura máxima: ", tmp_max)
 tmp_min = min(temperatures)
-print ("La remperatura mínima: ", tmp_min)
+print ("La temperatura mínima: ", tmp_min)
 tmp_avr = sum(temperatures)/len(temperatures)       # Promedio o media aritmética
-print ("La remperatura promedio: ", tmp_avr)
+print ("La temperatura promedio: ", tmp_avr)
 
-print ("La remperatura mediana: ", mediana())
+print ("La temperatura mediana: ", mediana())
 unicas = alone ()
 print("Las temperaturas que solo ocurrieron una sola vez en el periodo:\n",unicas)

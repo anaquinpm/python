@@ -1,2 +1,2 @@
-tmp/*
-*.vscode
+.gitignore
+hands-on/

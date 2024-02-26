@@ -34,11 +34,11 @@ Se pueden representar **caracteres especiales** mediante `secuencias de escapes`
 Con los **strings** se puede utilizar secuencias de escape formadas por `dos caracteres`.
 | Secuencia | Representación                 |
 | --------- | ------------------------------ |
-| \'        | Comilla simple                 |
-| \"        | Comillas dobles                |
+| \\'       | Comilla simple                 |
+| \\"       | Comillas dobles                |
 | \a        | Bell character (causa un beep) |
 | \b        | Backspace                      |
-| \\        | Backslash                      |
+| \\\       | Backslash                      |
 | \n        | Salto de linea                 |
 | \t        | Tab                            |
 | \v        | Tab vertical                   |
@@ -116,7 +116,7 @@ string.whitespace		# ' \t\n\r\x0b\x0c' -> Espacios en blanco considerados por mi
 ```
 
 Podemos eliminar los espacios en blanco que se encuentran delante o detras de una cadena de caracteres con los siguiente métodos:
- - `strip`: Devuelve la cadena oreiginal sin los espacios al inicio y filnal de la misma
+ - `strip`: Devuelve la cadena original sin los espacios al inicio y final de la misma
  - `lstrip`: Cadena sin espacios adelante.
  - `rstrip`: Cadena sin espacios al final.
 
@@ -128,8 +128,8 @@ y.strip("w.")           # "mundo.com" -> Como argumento de la función podemos i
 ```
 
 ## Busqueda de Strings
-
 `find` busca un **substring** dentro de un *string* y devuelve el **indice** de su primer ocurrencia o **-1** cuando no la encuentra.
+
 ```python
 """ string.find(substring[, start][, end] """
 x = "Pollo"
@@ -192,6 +192,7 @@ x = ['hola',' Mundo']
 
 ## Format method
 Podemos dar formato mediante el método `format`.
+
 ```python
 """ Dos formas de ingresar parametro son por posición y nombre """
 "El Asado es la {0} de los {1}".format("comida","Dioses")     # El n° en las llaves simples indican la posición del parametro por el que se va remplazar

@@ -1,7 +1,9 @@
 # Lists, Tuples, Sets
+
 - [Referencia de código en python en este tema, con comentarios](05_lists_tuples_sets.py)
 
 ## Listas
+
 Es una colección de objetos ordenados.
 
 ```python
@@ -10,17 +12,19 @@ x = [4, [5, 6], "siete"]    # Los elementos pueden ser cualquier objeto de pytho
 len(x)                      # len(): fc que cuenta el número de elementos de la lista
 len(x[1])                   # Cuenta los elementos del objeto en la posición 1 de la lista x
 ```
+
 No es necesario declarar la variable  antes de usarla, ni definir su tamaño, está se **expande o contrae** dependiendo como la utilicemos.
 
 ## Indices de listas
+
 - Indican la posición de los **elementos** en una lista.
-- Se númeran del elemento 0 en adelante.
+- Se numeran del elemento 0 en adelante.
 - Pueden ser `negativos` indicando que se empiezan a contar los elementos desde el final de la lista, pero la cuenta empieza en -1, indicando el ultimo elemento.
 
 | Indices/Posición | "primero" | "segundo" | "tercero" | "cuarto" |
 | ---------------- | --------- | --------- | --------- | -------- |
 | positivos        | 0         | 1         | 2         | 3        |
-| negativos        | -4        | -3        | -2        | -3       |
+| negativos        | -4        | -3        | -2        | -1       |
 
 **`Slicing`** es la manera en que podemos extraer o asignar una sublista en una sola sentencia.
 
@@ -32,11 +36,13 @@ x[:3]           # ["uno", "dos", "tres"]
 x[2:]           # ["tres", "cuatro"]
 x[:]            # todos los elementos. Usado para realizar copia de lista y no afectar la original.
 ```
+
 En el "slicing" x[:3] al no indicar el primer index, es pedir que retorne desde el elemento 0.
 
 Si no indicamos el segundo index, es pedir que devuelva hasta el ultimo elemento de la lista.
 
 ## Modificando listas
+
 Con la notación con index podemos modificar un elemento de la lista o extraer elementos de ella como ya vimos.
 
 ```python
@@ -49,7 +55,7 @@ Usando la notación "slice" podemos **modificar/agregar/remover** elementos de l
 ```python
 x = [1, 2, 3, 4]
 x[len(x):] = [5, 6, 7]  # Agregamos elementos al "final" de la lista x utilizando notación "slice"
-x.extend([5, 6, 7])     # Hace lo mismo que la linea anteior
+x.extend([5, 6, 7])     # Hace lo mismo que la linea anterior
 x = [1, 2, ] + [4, 5]   # "+" concatena 2 listas.
 
 x.append("elemento")    # "append" es una fc que permite agregar "un" elemento la lista.
@@ -69,6 +75,7 @@ x.reverse()             # Invierte el orden de los elementos en una lista.
 ```
 
 ## Ordenar listas
+
 ```python
 x = [ 7, 2, 5, 1]
 y = x[:]                # Copiamos la lista original
@@ -91,6 +98,7 @@ my_list = ["Hola","Python","en","progreso"]
 my_list.sort(key=cuenta_letras)     # Ordenar palabras según la cantidad de caracteres del string
 my_list
 ```
+
 [Ejemplo](ch05/ordenando.py)
 
 Es mejor el desempeño de "sort" sin personalizar y combinandolo con otros métodos.
@@ -103,6 +111,7 @@ y = sorted(x,reverse=True)          # sorted() devuelve una lista ordenada respe
 ```
 
 ### Operador "in"
+
 Con el operador `in` podemos chequear si un valor se encuentra en una lista, retornando un valor booleano (True/False). De igual manera para `not in`.
 
 ```python
@@ -111,6 +120,7 @@ Con el operador `in` podemos chequear si un valor se encuentra en una lista, ret
 ```
 
 ### Inicializando listas con el operador "*"
+
 Hay situaciones en donde creamos lista que son de tamaño fijo, de tal manera de no generar un overhead de moverla en memoria agregar elementos en ella usando por ejemplo "append", podemos crearla con el tamaño deseado.
 
 ```python
@@ -119,6 +129,7 @@ y = [1, 2] * 4      # [1, 2, 1, 2, 1, 2, 1, 2] -> repite los elementos las veces
 ```
 
 ### Mínimos y Máximos en una lista
+
 Generalmente se utiliza en listas que contienen números, pero se puede usar con cualquier tipo de objetos, que contengan elementos del mismo tipo.
 
 ```python
@@ -127,6 +138,7 @@ max([3, 7, "perro"])   # Devuelve ERROR por contener diferentes tipós de elemen
 ```
 
 ### Buscando el indice de un elemento
+
 `index()` devuelve la posición en que se encuentra un valor en una lista y si no lo encuentra devuelve ERROR.
 
 ```python
@@ -136,12 +148,14 @@ x.index(2)                  # ERROR
 ```
 
 ### Contando ocurrencias
+
 ```python
 x = [1, 2, 1, 2, 2, 4, 2, 6]
 x.count(2)                      # 4
 ```
 
 ## Listas anidadas y "deep copies"
+
 Podemos representar matrices bidimensionales mediante `listas anidades`.
 
 ```python
@@ -171,6 +185,7 @@ deep = copy.deepcopy(original)  # Crea elemento a elemento copias distintas de "
 ```
 
 ## Tuplas
+
 Son estructuras similares a las listas, una secuencia de valores asigandas a una variable, pero **`inmutables`**.
 
 Esta se pueden utilizar como indice en `diccionarios`.
@@ -186,6 +201,7 @@ y = (1 + 2,)            # Para indicar que es una tupla de un elemento, necesita
 Si uno de los elemento de una tupla apunta a una lista, está si se puede modificar.
 
 ### Packing and unpacking tuples
+
 ```python
 (a, b, c, d) = (1, 2, 3, 4)     # Asignacion de valores a las variables que contine una tupla
 a, b, c, d = 1, 2, 3, 4         # Se puede hacer este tipo de asignación sin los parentesis
@@ -197,17 +213,21 @@ a, b, c, d, *e                  # a=1, b=2, c=3, d=4, e=[]
 ```
 
 ### Convertir lista a tuplas y viceversa
+
 ```python
 list(tuple_var)
 tuple(list_var)
 list("hola")        # Descompone cada caracter en un elemento de una lista -> ['h','o','l','a']
 ```
+
 Cualquier secuencia en python puede ser tratada como una tupla o lista, como vemos en el último comando.
 
 ## Sets (conjuntos)
+
 Es una colección de objetos desordenados, donde la `unicidad` de cada **objeto** en el conjunto es lo importante.
 
-Cada objeto que lo compone debe ser `Hashable` e `Inmutable` (int, floats, strings y tuples). 
+Cada objeto que lo compone debe ser `Hashable` e `Inmutable` (int, floats, strings y tuples).
+
 ```python
 x = set ([1, 5 ,4 , 3, 5, 1])   # Se puede crear un set a partir de cualquier secuencia.
 print(x)                        # {1, 3, 4, 5} -> Se remueven los duplicados en la lista inicial (unicidad)
@@ -220,9 +240,11 @@ x & y                           # &: Intersección entre conjuntos -> {1, 5}
 x, y                            # tupla de los conjuntos "x" e "y"
 x ^ y                           # ^ Diferencia simétrica entre conjuntos (exceptua los elementos que se interceptan de los conjuntos)
 ```
+
 Como los "sets" no son "hashable" ni "inmutables", no pueden ser elementos de otro "set".
 
 ### Frozensets
+
 Similar los anteriores, pero estos NO pueden ser modificados una vez creados. Esto permite que puedan ser elementos de otro "set".
 
 ```python
