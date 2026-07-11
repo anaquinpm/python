@@ -1,29 +1,40 @@
-# Python
+# Python Knowledge Base
 
-## Indice
+A structured collection of Python notes, examples, and hands-on projects for learning and reference.
 
-### Lo básico
+## Notes Directory
 
-- [Instalando entorno para programas en python](notes/quickPython/02_environment.md)
-- [Packages](notes/20220502162904-packages.md)
-- [Lo Básico](notes/quickPython/04_basic.md)
-- [Lists, tuples, Sets](notes/quickPython/05_lists_tuples_sets.md)
-- [Strings](notes/quickPython/06_strings.md)
-- [Diccionarios](notes/quickPython/07_Dictionaries.md)
-- [Control de flujo](notes/quickPython/08_controlFlow.md)
-- [Funciones](notes/quickPython/09_functions.md)
-- [Modules and Scoping rules](notes/quickPython/10_ModulesAndScopingRules.md)
-- [Programas y Módulos](notes/quickPython/11_programs.md)
-- [Usando el Filesystem](notes/quickPython/12_filesystem.md)
-- [OOP](./notes/20220522111558-oop.md)
+| Topic | Subject / Reference | Status |
+|---|---|---|
+| **01 Setup** | [Environment Setup](notes/01_setup/environment.md) · [Package Management](notes/01_setup/packages.md) | ✅ Complete |
+| **02 Fundamentals** | [Basics](notes/02_fundamentals/basics.md) · [Control Flow](notes/02_fundamentals/control_flow.md) | ✅ Complete |
+| **03 Data Structures** | [Lists, Tuples & Sets](notes/03_data_structures/lists_tuples_sets.md) · [Strings](notes/03_data_structures/strings.md) · [Dictionaries](notes/03_data_structures/dictionaries.md) | ✅ Complete |
+| **04 Functions** | [Functions & Scope](notes/04_functions/functions.md) | ✅ Complete |
+| **05 Modules** | [Modules & Scoping](notes/05_modules/modules_and_scoping.md) · [Python Programs](notes/05_modules/programs.md) | ✅ Complete |
+| **06 I/O** | [Filesystem Manipulation](notes/06_io/filesystem.md) · [File Reading/Writing](notes/06_io/files.md) | ✅ Complete |
+| **07 OOP** | [Object-Oriented Programming](notes/07_oop/oop.md) | ✅ Complete |
+| **08 Error Handling** | [Exception Handling](notes/08_error_handling/exceptions.md) | 📝 Draft |
 
-## References
+*Legend: ✅ Complete · 🔨 In Progress · 📝 Draft*
 
-- [The official tutorial Python](https://docs.python.org/3/tutorial/)
-- [Python 3 Libraries](http://py3readiness.org)
+---
 
-## En proceso
+## Hands-On Projects
 
-## Sin Empezar
+The `hands-on/` directory contains practice labs, exercise repositories, and personal projects:
 
-## Finalizado
+- **`hands-on/ms/`**: Microsoft Learn projects and unit testing practice.
+  - [unittest](hands-on/ms/unittest/) - Unit testing practice labs.
+  - [rock-peper-scissors](hands-on/ms/rock-peper-scissors/) - CLI Game.
+  - [contoso](hands-on/ms/contoso/) - Microsoft Learn sandbox/practice project.
+- **`hands-on/_sandbox/`**: General playground/sandbox code for testing syntax and scripts.
+
+---
+
+## References & Links
+
+- [Official Python Tutorial](https://docs.python.org/3/tutorial/)
+- [Python 3 Standard Library Reference](https://docs.python.org/3/library/)
+- [PyPI - Python Package Index](https://pypi.org/)
+- [Download Python](https://www.python.org/downloads/)
+- [Anaconda Download](https://www.anaconda.com/download/)
