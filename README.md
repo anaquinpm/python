@@ -33,8 +33,8 @@ The `hands-on/` directory contains practice labs, exercise repositories, and per
 
 ## References & Links
 
-- [Official Python Tutorial](https://docs.python.org/3/tutorial/)
-- [Python 3 Standard Library Reference](https://docs.python.org/3/library/)
+- [Official Python 3.14 Tutorial](https://docs.python.org/3.14/tutorial/)
+- [Python 3.14 Standard Library Reference](https://docs.python.org/3.14/library/)
 - [PyPI - Python Package Index](https://pypi.org/)
 - [Download Python](https://www.python.org/downloads/)
 - [Anaconda Download](https://www.anaconda.com/download/)
