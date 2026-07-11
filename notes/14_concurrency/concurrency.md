@@ -7,3 +7,8 @@ last_updated: 2026-07-10
 ---
 
 # Concurrency
+
+*   **Concurrent Execution:** Introduction to managing multiple tasks.
+*   **The `threading` Module:** Implementing thread-based parallelism (multi-threading).
+*   **The `multiprocessing` Module:** Implementing process-based parallelism (bypassing interpreter limitations).
+*   **The `asyncio` Module:** Asynchronous programming and non-blocking I/O.

@@ -7,3 +7,7 @@ last_updated: 2026-07-10
 ---
 
 # Regular Expressions
+
+*   **Text Processing Services:** Introduction to text-related tools.
+*   **The `re` Module:** Regular expression operations and syntax.
+*   **Pattern Matching:** Searching and processing text strings.
