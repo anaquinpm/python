@@ -40,6 +40,14 @@ The `hands-on/` directory contains practice labs, exercise repositories, and per
 
 ---
 
+## Agent Customization (Skills)
+
+This workspace is configured with an agent skill to assist in your learning journey. When interacting with Antigravity, you can leverage:
+
+* **[python_mentor](.agents/skills/python_mentor/SKILL.md)**: A workspace skill designed to guide you through Python best practices, secure coding guidelines, containerization (Docker), and AI engineering patterns. Ask the agent for a "Practice Lab" or "Code Review" to trigger it.
+
+---
+
 ## References & Links
 
 - [Official Python 3.14 Tutorial](https://docs.python.org/3.14/tutorial/)
