@@ -14,9 +14,8 @@ Dictionaries are associative arrays or maps implemented using hash tables.
 
 - **Keys** can be any immutable, hashable Python object (integers, strings, etc.) and serve as lookups.
 - **Values** can be any Python object.
-- Dictionaries are unordered by default in older versions of Python, though they preserve insertion order starting in Python 3.7.
-  - If a strictly ordered dictionary is required, you can use `collections.OrderedDict`.
-  - Alternatively, use another data structure (e.g., lists) to store key sequences explicitly.
+- Since Python 3.7, dictionaries are **guaranteed to preserve insertion order** as part of the language specification.
+  - If compatibility with older legacy Python engines is required or you need specialized reordering capabilities, `collections.OrderedDict` can still be used.
 
 ```python
 y = {}
@@ -61,9 +60,19 @@ y = x.copy()
 import copy
 z = copy.deepcopy(x)  
 
-# Merging dictionaries
+# Merging dictionaries (Legacy vs Modern Python 3.9+)
 h = {1: 'One', 2: 'Two'}
-x.update(h)           # Updates x in place with key-value pairs from h
+
+# 1. Legacy update (modifies in-place)
+x.update(h)
+
+# 2. Modern Union operator '|' (creates a new dictionary)
+d1 = {'a': 1, 'b': 2}
+d2 = {'b': 99, 'c': 4}
+merged = d1 | d2      # merged is {'a': 1, 'b': 99, 'c': 4}
+
+# 3. Modern Union update operator '|=' (updates in-place)
+d1 |= d2              # d1 is now {'a': 1, 'b': 99, 'c': 4}
 ```
 
 ## Example: Counting Word Frequencies

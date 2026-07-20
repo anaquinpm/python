@@ -1,0 +1,8 @@
+services:
+  dev:
+    image: python:3.12-slim
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true

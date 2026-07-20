@@ -13,16 +13,16 @@ A structured collection of Python notes, examples, and hands-on projects for lea
 | **05 Modules** | [Modules & Scoping](notes/05_modules/modules_and_scoping.md) · [Python Programs](notes/05_modules/programs.md) | ✅ Complete |
 | **06 I/O** | [Filesystem Manipulation](notes/06_io/filesystem.md) · [File Reading/Writing](notes/06_io/files.md) | ✅ Complete |
 | **07 OOP** | [Object-Oriented Programming](notes/07_oop/oop.md) | ✅ Complete |
-| **08 Error Handling** | [Exception Handling](notes/08_error_handling/exceptions.md) | 📝 Draft |
-| **09 Iterators & Generators** | [Iterators and Generators](notes/09_iterators_generators/iterators_and_generators.md) | 📝 Draft |
-| **10 Standard Library** | [Standard Library Overview](notes/10_standard_library/standard_library.md) | 📝 Draft |
-| **11 Testing** | [Testing](notes/11_testing/testing.md) | 📝 Draft |
-| **12 Type Hints** | [Type Hints & Annotations](notes/12_type_hints/type_hints.md) | 📝 Draft |
-| **13 Regex** | [Regular Expressions](notes/13_regex/regular_expressions.md) | 📝 Draft |
-| **14 Concurrency** | [Concurrency](notes/14_concurrency/concurrency.md) | 📝 Draft |
-| **15 Data Serialization** | [Data Serialization](notes/15_data_serialization/data_serialization.md) | 📝 Draft |
-| **16 Logging & Debugging** | [Logging and Debugging](notes/16_logging_debugging/logging_and_debugging.md) | 📝 Draft |
-| **17 Networking** | [Networking and Web](notes/17_networking/networking.md) | 📝 Draft |
+| **08 Error Handling** | [Exception Handling](notes/08_error_handling/exceptions.md) | ✅ Complete |
+| **09 Iterators & Generators** | [Iterators and Generators](notes/09_iterators_generators/iterators_and_generators.md) | ✅ Complete |
+| **10 Standard Library** | [Standard Library Overview](notes/10_standard_library/standard_library.md) | ✅ Complete |
+| **11 Testing** | [Testing](notes/11_testing/testing.md) | ✅ Complete |
+| **12 Type Hints** | [Type Hints & Annotations](notes/12_type_hints/type_hints.md) | ✅ Complete |
+| **13 Regex** | [Regular Expressions](notes/13_regex/regular_expressions.md) | ✅ Complete |
+| **14 Concurrency** | [Concurrency](notes/14_concurrency/concurrency.md) | ✅ Complete |
+| **15 Data Serialization** | [Data Serialization](notes/15_data_serialization/data_serialization.md) | ✅ Complete |
+| **16 Logging & Debugging** | [Logging and Debugging](notes/16_logging_debugging/logging_and_debugging.md) | ✅ Complete |
+| **17 Networking** | [Networking and Web](notes/17_networking/networking.md) | ✅ Complete |
 
 *Legend: ✅ Complete · 🔨 In Progress · 📝 Draft*
 

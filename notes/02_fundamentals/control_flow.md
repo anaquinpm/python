@@ -35,30 +35,77 @@ else:
 
 When an empty block is syntactically required but no action is needed, use the `pass` statement.
 
-### Switch Case Alternatives
-Python does not have a traditional `switch` statement (prior to Python 3.10 match-case). Alternatives include using `if-elif-else` chains or a dictionary of functions:
+### Pattern Matching (`match-case`)
+
+Since Python 3.10, the `match-case` statement serves as the modern equivalent to a switch statement, providing powerful structural pattern matching.
+
+```python
+x = 'a'
+
+match x:
+    case 'a':
+        # Execute code for 'a'
+        pass
+    case 'b':
+        # Execute code for 'b'
+        pass
+    case 'c':
+        # Execute code for 'c'
+        pass
+    case _:
+        # Default fallback case
+        pass
+```
+
+> [!IMPORTANT]
+> **Security & Fail-Safe Defaults**: Always include a default fallback case (`case _:`) in pattern matching. This prevents unhandled inputs from silently passing through or causing logical voids, ensuring the application handles unexpected data safely (e.g. raising a `ValueError` or logging an alert).
+
+## Assignment Expressions (The Walrus Operator `:=`)
+
+Introduced in Python 3.8, the assignment expression operator (`:=`), commonly called the **walrus operator**, allows you to assign values to variables *inside* an expression. This helps write cleaner, more efficient loops and conditionals by avoiding duplicate function calls or evaluations.
+
+```python
+# 1. Using in a conditional check
+# Without Walrus:
+# user = get_user()
+# if user:
+#     print(user.name)
+
+# With Walrus:
+if (user := get_user()) is not None:
+    print(user.name)
+
+# 2. Using in loops to read stream chunks
+# Reads blocks until empty (extremely common for sockets or files)
+# while True:
+#     chunk = stream.read(1024)
+#     if not chunk:
+#         break
+#     process(chunk)
+
+# With Walrus:
+while (chunk := stream.read(1024)):
+    process(chunk)
+```
+
+### Legacy Switch Alternatives (Older Codebases)
+
+In Python versions prior to 3.10, developers relied on `if-elif-else` chains or dictionary mapping (dispatching functions) to mimic switch-case behavior:
 
 ```python
 def a_func():
-    # Execute code for 'a'
     pass
 
 def b_func():
-    # Execute code for 'b'
-    pass
-
-def c_func():
-    # Execute code for 'c'
     pass
 
 dicc_fc = {
     'a': a_func,
-    'b': b_func,
-    'c': c_func
+    'b': b_func
 }
 
 x = 'a'
-dicc_fc[x]()  # Executes the function mapped to the key 'a'
+dicc_fc.get(x, lambda: None)()  # Executes the function mapped to 'a'
 ```
 
 *See companion code: [control_flow.py](examples/08_control_flow.py)*
@@ -224,13 +271,13 @@ A script that reads a text file and prints its lines, words, and characters (sim
 """Reads a file and returns counts for lines, words, and characters."""
 
 line_count, word_count, char_count = 0, 0, 0
+
 with open('word_count.tst') as file:
     for line in file:
         line_count += 1
         words = line.split()
         word_count += len(words)
         char_count += len(line.strip(",.\t\n "))
-
 print(f"Lines: {line_count}, Words: {word_count}, Characters: {char_count}")
 ```
 

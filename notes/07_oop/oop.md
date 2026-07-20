@@ -83,9 +83,48 @@ class Square:
 
     @height.setter
     def height(self, new_value):
-        """Setter for height with validation."""
+        """Setter for height with validation and sanitization (Best Practice)."""
+        if not isinstance(new_value, (int, float)):
+            raise TypeError("Height must be a number")
         if new_value >= 0:
             self.__height = new_value
         else:
             raise ValueError("Value must be non-negative")
 ```
+
+## Dataclasses (`@dataclass` Decorator)
+
+Introduced in Python 3.7, the `dataclasses` module provides a decorator to automatically generate boilerplate methods (like `__init__`, `__repr__`, `__eq__`) for classes that primarily exist to store data.
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    username: str
+    email: str
+    active: bool = True
+
+# Usage
+user = User("alice", "alice@example.com")
+print(user)  # Output: User(username='alice', email='alice@example.com', active=True)
+```
+
+## Generic Classes (Python 3.12+ Syntax)
+
+Python 3.12 (PEP 695) introduced a new, clean syntax for writing generic classes and functions directly using square brackets, matching modern type-hinting standards.
+
+```python
+# A generic Box class that can hold any type T
+class Box[T]:
+    def __init__(self, content: T):
+        self.content: T = content
+
+    def get_content(self) -> T:
+        return self.content
+
+# Usage: Box holds an integer
+int_box = Box[int](123)
+print(int_box.get_content())
+```
+

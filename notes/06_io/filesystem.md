@@ -80,3 +80,27 @@ print(a_path.name)                 # Output: "file.txt"
 print(a_path.parent)               # Output: "some/directory"
 print(a_path.suffix)               # Output: ".txt"
 ```
+
+## Security: Preventing Directory Traversal
+
+When taking user input to read or write a file, an attacker can input parent directory references (like `../../etc/passwd`) to escape the target directory. 
+
+Always resolve paths fully using `.resolve()` and verify that the target path begins with the base directory path.
+
+```python
+from pathlib import Path
+
+BASE_DIR = Path("/workspace/data").resolve()
+
+def save_user_file(filename, content):
+    # Construct target path
+    target = (BASE_DIR / filename).resolve()
+    
+    # Check if base directory is a parent of the target path
+    if BASE_DIR in target.parents or BASE_DIR == target:
+        with open(target, "w") as file:
+            file.write(content)
+    else:
+        raise PermissionError("Access denied: Path traversal attempt blocked.")
+```
+

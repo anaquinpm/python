@@ -13,9 +13,10 @@ last_updated: 2026-07-10
 ## Basic Function Definition
 
 ```python
-def name(parameter1, parameter2, ...):
+def name(parameter1, parameter2):
     """Function docstring description (optional)"""
-    body
+    # body
+    pass
 ```
 
 ```python
@@ -78,6 +79,26 @@ print(power(3))      # Returns 9 (uses default y=2)
 print(power(3, 4))   # Returns 81
 ```
 
+> [!WARNING]
+> **The Mutable Default Argument Trap**: In Python, default parameter values are evaluated *only once* at function definition time, not at call time. If you use a mutable object (like a list or dictionary) as a default, all function calls share that same object instance.
+> * **Bad (Insecure / Bug-prone)**:
+>   ```python
+>   def add_user(user, user_list=[]):
+>       user_list.append(user)
+>       return user_list
+>   
+>   print(add_user("Alice"))  # Output: ['Alice']
+>   print(add_user("Bob"))    # Output: ['Alice', 'Bob'] (shared state!)
+>   ```
+> * **Good (Secure / Best Practice)**: Use `None` as the default and initialize the mutable object dynamically inside the function.
+>   ```python
+>   def add_user(user, user_list=None):
+>       if user_list is None:
+>           user_list = []
+>       user_list.append(user)
+>       return user_list
+>   ```
+
 ### Keyword Arguments (Named Arguments)
 
 You can specify parameter names when calling a function. The order of arguments does not matter when using keywords.
@@ -94,6 +115,28 @@ def file_info(size=False, create_date=False, mod_date=False):
     return info
 
 info = file_info(size=True, mod_date=True)
+```
+
+### Positional-Only and Keyword-Only Parameters (Python 3.8+)
+
+You can restrict how arguments are passed using `/` and `*` in the parameter list.
+
+```python
+def configure_system(mode, /, timeout=30, *, secure=True):
+    """
+    mode: Positional-only parameter (must appear before '/')
+    timeout: Position-or-keyword parameter (appears between '/' and '*')
+    secure: Keyword-only parameter (must appear after '*')
+    """
+    pass
+
+# Valid calls:
+configure_system("production", 60, secure=True)
+configure_system("development", timeout=10)
+
+# Invalid calls (raise TypeError):
+# configure_system(mode="production")  # mode must be positional
+# configure_system("production", 60, True)  # secure must be keyword-only
 ```
 
 ### Variable Number of Arguments

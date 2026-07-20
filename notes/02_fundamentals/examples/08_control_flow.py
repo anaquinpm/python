@@ -1,9 +1,24 @@
+# Modern Pattern Matching (Python 3.10+)
+x = 'a'
+match x:
+    case 'a':
+        print("Executing code for a")
+    case 'b':
+        print("Executing code for b")
+    case 'c':
+        print("Executing code for c")
+    case _:
+        print("Fallback")
+
+# Legacy Switch-Case Alternative (Dictionary Dispatch)
 def a_func():
-  # código para ejecutar
+    print("Executing code for a")
+
 def b_func():
-  # código para ejecutar
+    print("Executing code for b")
+
 def c_func():
-  # código para ejecutar
+    print("Executing code for c")
 
 dicc_fc = {
   'a' : a_func,

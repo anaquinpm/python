@@ -1,9 +1,9 @@
 ---
 title: Python Basics
-tags: [fundamentals, basics, syntax, variables, types]
+tags: [fundamentals, basics, syntax, variables, types, security]
 status: complete
 source: The Quick Python Book, Ch. 4
-last_updated: 2026-07-10
+last_updated: 2026-07-20
 ---
 
 # Python Basics
@@ -48,101 +48,90 @@ print(a, b, c)      # Prints [1, 5, 3] three times
 
 For immutable values (like integers or strings), assigning a new value to a variable does not modify the original object; instead, the variable is rebound to point to a new object.
 
-Variables can point to any type of object (dynamic typing).
-
 ```python
 x = "a string"
-print(x)
-x = 5
-print(x)
+x = 5       # Rebinds x
 del x       # Deletes the variable binding
 ```
 
-Variable names are case-sensitive and can contain alphanumeric characters and underscores.
+## Strings and Formatted Literals (f-strings)
 
-## Expressions
+Strings can be enclosed in single (`'`), double (`"`), or triple (`"""` or `'''`) quotes.
 
-Python supports standard arithmetic expressions.
+### Modern f-strings (Formated String Literals)
 
-```python
-x, y = 3, 4         # Multiple assignment
-z = (x + y) / 2     # Standard division (returns float)
-z = (x + y) // 2    # Floor division (returns truncated integer)
-```
-
-## Strings
-
-Strings can be enclosed in either single quotes (`'`) or double quotes (`"`).
-
-Special characters can be escaped using a backslash (`\`): `\n` (newline), `\t` (tab), `\"` (double quote), etc.
-
-Triple quotes (`'''` or `"""`) allow multi-line strings without needing explicit escape characters:
+f-strings provide a readable and concise way to format strings.
 
 ```python
-text = """This is a string
-that can span multiple lines and contain 'quotes'
-without needing to escape them."""
+name = "Alice"
+age = 30
+
+# Standard f-string
+print(f"Name: {name}, Age: {age}")  # Output: Name: Alice, Age: 30
+
+# 1. Debugging shorthand (Python 3.8+)
+print(f"{name=}, {age=}")           # Output: name='Alice', age=30
+
+# 2. Modern 3.12+ f-string updates:
+# - Nested quotes: You can reuse the same quote characters inside the expression
+# - Backslashes: Allowed directly inside expressions
+# - Newlines: Allowed inside expressions
+users = ["Alice", "Bob"]
+print(f"First user: {users[0].upper() if len(users) > 0 else 'none'}")
+print(f"Uppercase users: {', '.join([u.upper() for u in users])}")
 ```
 
 ## Numbers
 
-Python handles four types of numbers:
-- **Integers**: Arbitrary precision (limited only by system resources).
-- **Floats**: Maximum 64-bit precision, written as decimals or in scientific notation.
-- **Complex Numbers**
+- **Integers**: Arbitrary precision.
+- **Floats**: Maximum 64-bit precision.
 - **Booleans**: `True` (1) or `False` (0).
-
-```python
->>> 9 / 2
-4.5
->>> 9 // 2      # Truncates division to return integer part
-4
->>> int(2.3e2)  # Converts float from scientific notation to integer
-230
->>> float(9 / 3)
-3.0
-```
-
-### Built-in Numeric Functions
-`abs`, `divmod`, `float`, `hex`, `int`, `max`, `min`, `oct`, `pow`, `round`
-
-### Advanced Math Module
-Import functions from the `math` module for more complex operations.
-
-```python
-from math import *      # Imports mathematical functions
-```
-
-Common functions: `acos`, `asin`, `atan`, `cos`, `ceil`, `exp`, `e`, `hypot`, `log`, `log10`, and others.
-
-### Scientific/Numeric Computation
-[NumPy](https://numpy.org) is a popular package used for implementing advanced mathematical operations, matrices, Fourier transforms, and more.
 
 ## The "None" Value
 
-`None` is a special constant representing the absence of a value (empty placeholder).
+`None` is a special constant representing the absence of a value. It is a singleton.
 
-If a function does not return a value, it returns `None` by default.
+## Truthiness and Falsy Values
 
-`None` is a singleton; all variables referencing `None` point to the exact same object.
+Most objects can be evaluated in boolean contexts (like `if` statements). By default, empty collections (`[]`, `{}`, `()`, `""`), numeric zeros (`0`, `0.0`), and `None` are falsy. Other objects are truthy.
 
-## Getting User Input
+### Custom Class Truthiness
+You can control the truthiness of custom classes by defining `__bool__()` or `__len__()` magic methods.
 
 ```python
-"""Example program to calculate the factorial of a user-supplied number"""
-# The input() function returns a string by default. We convert it using int()
-n = int(input("Enter a number to factorize: "))
-r = 1
-while n > 0:
-    r *= n
-    n -= 1
-print(r)
+class Account:
+    def __init__(self, balance):
+        self.balance = balance
+
+    def __bool__(self):
+        return self.balance > 0
+
+acc = Account(100)
+if acc:
+    print("Account is active (balance > 0)")
 ```
 
-## Style Conventions
+## Security Warning: The Danger of `eval()` and `exec()`
 
-Refer to [PEP 8 - Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) for community conventions:
+> [!CAUTION]
+> **Avoid using `eval()` or `exec()` to dynamically run or calculate expressions from user inputs.**
+> If an application calls `eval(user_input)`, an attacker can pass a malicious string to execute shell commands, read/write local files, or shut down the application.
 
-- Use `snake_case` for functions, variables, and modules: `my_func`, `my_var`, `my_module`
-- Use `PascalCase` for classes: `MyClass`
-- Use `UPPER_CASE` for constants: `CONST_NAME`
+* **Bad (Command Injection/RCE)**:
+  ```python
+  # User inputs: "__import__('os').system('rm -rf /')"
+  result = eval(user_input)
+  ```
+* **Good (Safe Parsing)**:
+  Use safe standard libraries like `ast.literal_eval()` (which only parses basic literals/structures) or parse values explicitly using safe functions (e.g. `int()`).
+  ```python
+  import ast
+  # Safely parse a list or dict literal from a string
+  safe_data = ast.literal_eval("[1, 2, 3]")
+  ```
+
+## Style Conventions (PEP 8)
+
+- Use `snake_case` for variables, functions, and files.
+- Use `PascalCase` for classes.
+- Use 4 spaces per indentation level.

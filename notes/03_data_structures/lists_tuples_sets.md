@@ -231,6 +231,7 @@ A set is an unordered collection of unique elements. All elements must be **hash
 Sets behave similarly to dictionary keys without associated values.
 
 ```python
+y = set()                       # the only way to create an empty set (the '{}' creates an empty dictionary)
 x = set([1, 5, 4, 3, 5, 1])     # Create a set from a sequence
 print(x)                        # Output: {1, 3, 4, 5} (duplicates removed)
 x.add(6)                        # Adds an element

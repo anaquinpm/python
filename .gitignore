@@ -1,4 +1,5 @@
-hands-on/
+hands-on/_sandbox/
+hands-on/ms/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

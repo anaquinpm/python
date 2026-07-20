@@ -71,8 +71,8 @@ The `import` statement supports three variations:
    ```python
    from modulename import *
    ```
-   > [!WARNING]
-   > Use wildcard imports (`from module import *`) with caution. They can pollute the namespace and overwrite existing names.
+    > [!WARNING]
+    > **Wildcard Imports pollution**: Wildcard imports (`from module import *`) should be avoided in production. They hide the origin of variables and functions, make static analysis (like linters) impossible, and can lead to silent namespace collisions.
 
 ## Module Search Path
 
@@ -85,7 +85,18 @@ print(sys.path)
 
 `sys.path` is a list of directory paths that Python searches sequentially. The first match stops the search.
 
-The first element in `sys.path` is usually an empty string `""`, which instructs Python to search the current directory first.
+The first element in `sys.path` is usually an empty string `""` (or the path of the script itself), which instructs Python to search the current directory first.
+
+> [!CAUTION]
+> **Security: Module/DLL Hijacking via `sys.path`**: 
+> If your application runs in environment paths that are user-writable (like `/tmp` or public shared directories) and includes `""` (CWD) in `sys.path`, an attacker can place a malicious module (e.g. `math.py` or `os.py`) in that folder. When your script executes `import math`, it will load the attacker's code instead of the standard library.
+> * **Best Practice**: Sanitize `sys.path` to remove unsafe relative paths if running in security-sensitive or multi-tenant environments.
+>   ```python
+>   import sys
+>   # Remove CWD relative imports if necessary
+>   if "" in sys.path:
+>       sys.path.remove("")
+>   ```
 
 ### Custom Module Paths
 

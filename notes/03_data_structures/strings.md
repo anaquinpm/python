@@ -18,7 +18,7 @@ You can extract characters or substrings from a string using indexing or slice n
 x = "Hello\n"
 x[0]          # Returns "H"
 x[:-1]        # Returns "Hello" -> Useful for stripping newline characters when reading files
-x[1:-1]       # Returns "ell"
+x[1:-1]       # Returns "ello"
 len(x)        # Returns 6
 ```
 
